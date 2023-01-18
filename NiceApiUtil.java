@@ -130,27 +130,6 @@ public class NiceApiUtil extends CommonServiceImpl implements Serializable {
         String tokenVersionId = param.getString("token_version_id");
         String encData = param.getString("enc_data");
 //        String integrityValue = param.getString("integrity_value"); //무결성 값 필요 시 사용
-        log.info("encData   --------------------------------------------- start " );
-        log.info(encData);
-        log.info("encData   --------------------------------------------- end" );
-
-        log.info("sessionId   --------------------------------------------- start" );
-        String sessionId = paramCtx.getSession().getId();
-        log.info(sessionId);
-        log.info("sessionId   --------------------------------------------- end" );
-
-        log.info("tokenVersionId   --------------------------------------------- start " );
-        log.info(tokenVersionId);
-        log.info("tokenVersionId   --------------------------------------------- end" );
-
-        log.info("subVersionId   --------------------------------------------- start " );
-        log.info(param.getString("subVersionId"));
-        log.info("subVersionId   --------------------------------------------- end" );
-
-        log.info("remoteIP   --------------------------------------------- start" );
-        log.info(paramCtx.getRequest().getRemoteAddr());
-        log.info("remoteIP   --------------------------------------------- end" );
-
 
         //복호화키
         ZValue keyInfo = null;
@@ -395,27 +374,6 @@ public class NiceApiUtil extends CommonServiceImpl implements Serializable {
 
                 param.put("encData", encData);
                 param.put("integrityValue", integrityValue);
-                log.info("returnUrl   --------------------------------------------- start " );
-                log.info(returnUrl);
-                log.info("returnUrl   --------------------------------------------- end" );
-
-                log.info("sessionId   --------------------------------------------- start" );
-                String sessionId = paramCtx.getSession().getId();
-                log.info(sessionId);
-                log.info("sessionId   --------------------------------------------- end" );
-
-
-                log.info("secretKey   --------------------------------------------- start " );
-                log.info(secretKey);
-                log.info("secretKey   --------------------------------------------- end" );
-
-                log.info("initailVector   --------------------------------------------- start " );
-                log.info(initailVector);
-                log.info("initailVector   --------------------------------------------- end" );
-
-                log.info("remoteIP   --------------------------------------------- start" );
-                log.info(paramCtx.getRequest().getRemoteAddr());
-                log.info("remoteIP   --------------------------------------------- end" );
 
                 //복호화를 위해 암호키를 세션에 추가함
                 paramCtx.getSession().setAttribute("secretKey", secretKey);
